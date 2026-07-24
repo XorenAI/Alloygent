@@ -1,6 +1,6 @@
 [project]
 name = "alloygent"
-version = "0.1.1"
+version = "0.1.2"
 description = "A typed Python library for building agent workflows from plain functions."
 readme = "README.md"
 authors = [
