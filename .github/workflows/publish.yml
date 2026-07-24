@@ -1,4 +1,4 @@
-name: Publish Python package
+name: Build Python package
 
 on:
   push:
@@ -34,24 +34,3 @@ jobs:
         with:
           name: python-package-distributions
           path: dist/
-
-  publish:
-    name: Publish to PyPI
-    needs: build
-    runs-on: ubuntu-latest
-    environment: pypi
-
-    steps:
-      - name: Download distributions
-        uses: actions/download-artifact@v4
-        with:
-          name: python-package-distributions
-          path: dist/
-
-      - name: Install uv
-        uses: astral-sh/setup-uv@v6
-
-      - name: Publish distributions
-        env:
-          PYPI_API_TOKEN: ${{ secrets.PYPI_API_TOKEN }}
-        run: uv publish --token "$PYPI_API_TOKEN"

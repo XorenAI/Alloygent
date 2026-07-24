@@ -18,16 +18,12 @@ uv build
 
 ## Publishing
 
-This repository is configured for PyPI Trusted Publishing through GitHub Actions.
-Create a PyPI trusted publisher for:
-
-- Repository: `XorenAI/Alloygent`
-- Workflow: `publish.yml`
-- Environment: `pypi`
-
-Then publish a release by pushing a version tag:
+Build and publish from your laptop with a PyPI API token:
 
 ```bash
-git tag v0.1.1
-git push origin v0.1.1
+uv build
+uv publish --token "pypi-..."
 ```
+
+The GitHub workflow builds release distributions for tags and manual runs, but
+does not upload to PyPI.
